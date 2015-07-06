@@ -1,8 +1,8 @@
-
-<!--This is my original version 1.5 HTML file.-->
+<!--This is my original version 1.5 HTML file. This was coded by Howard Kam-->
 <html>
   <head>
     <style>
+/*-START. This part contains all the CSS of this file */
   html {
   background: url(http://www.howardkam.com/sucessbaby.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -16,34 +16,49 @@ h1 {
     font-size:100px;
     color:#E8135D
 }
-
 h3 {
     text-align: right;
     font-family: sans-serif;
     font-size:20px;
 }
-
 p {
     text-align: right;
     font-family: sans-serif;
     font-size:20px;
 }
-
+.boxed {
+  border: 1px solid;
+  width: 400px;
+  float: right
+}
+/*-END. This part contains all the CSS of this file */
     </style>
   </head>
 <body>
 
 <h1>The "Decider"</h1>
+<!--START. This is a divider box that gives the instructions to the user on what to do-->
+<div class="boxed">
+<p>Step 1. Enter the name of your students.</p>
+<p>Step 2. Click DECIDE and a random student name will appear.</p>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!--END. This is a divider box that gives the instructions to the user on what to do-->
 
-<h3>Enter the name of your students, then click DECIDE and a random student name will appear.</h3>
 
 		<form method="get" action="/" onsubmit="return false;">
 
 
 					<div style="font: 12px/1.5 helvetica, sans-serif; float:right;width:400px">Comma-separated list<textarea style="width: 400px;height: 50px;" name="names" id="names">name1,name2</textarea>
-
+<!--START. When the button is clicked, it will activate a javascript function called rnd()-->
           <input type="button" value="DECIDE" onclick="rnd();">
-
+<!--END. When the button is clicked, it will activate a javascript function called rnd()-->
           </div>
 					
 
@@ -52,7 +67,8 @@ p {
 
 		</form>
 		<script type="text/javascript">
-		
+/* START. This is a function called rnd. It takes the names of the students, then replaces extra spaces after the comma with no spaces,
+then tells the array to split the data with commas. */
 		var rnd = function () {
 			var names;
 			names = document.getElementById('names').value;
@@ -60,11 +76,17 @@ p {
 			names = names.split(',');
 			setTimeout(function () {
 				var thing;
+/* END. This is a function called rnd. It takes the names of the students, then replaces extra spaces after the comma with no spaces,
+then tells the array to split the data with commas. */
+
+/* START. The variable named "thing" generates a random number and multiplies it by the length of the names variable.
+then the output gets displayed to the screen and looks for the paragraph ID of "result" and places the randomly generated array value there.*/
 				thing = Math.floor(Math.random() * names.length);
 				document.getElementById('result').innerHTML = names[thing];
 			}, 500);
 		};
-		
+/* END. The variable named "thing" generates a random number and multiplies it by the length of the names variable.
+then the output gets displayed to the screen and looks for the paragraph ID of "result" and places the randomly generated array value there.*/
 		</script>
 <br>
 		<p id="result" style="font-size:100px; color:#E8135D"></p>
